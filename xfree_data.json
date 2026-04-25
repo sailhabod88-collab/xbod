@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "title": "محتوى حصري: تعليم البرمجة بسهولة",
+    "video_url": "https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4",
+    "poster": "https://peach.blender.org/wp-content/uploads/image-13-1024x576.png?x11217",
+    "views": 45230,
+    "likes": 8750,
+    "category": "تعليم",
+    "tags": [
+      "برمجة",
+      "تعليم",
+      "للمبتدئين"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "رحلة مشوقة في أعماق المحيط",
+    "video_url": "https://commondatastorage.googleapis.com/gtv-videos-library/sample/ElephantsDream.mp4",
+    "poster": "https://media.tenor.com/images/a5f6c835ff5f9f5f3f5a5f5f3f5a5f5f/tenor.gif",
+    "views": 120500,
+    "likes": 32100,
+    "category": "وثائقي",
+    "tags": [
+      "طبيعة",
+      "محيط",
+      "مغامرة"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "أفضل 10 نصائح للطبخ الصحي",
+    "video_url": "https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4",
+    "poster": "https://www.gstatic.com/images/branding/product/1x/googleg_120x120.png",
+    "views": 67890,
+    "likes": 15420,
+    "category": "الطبخ",
+    "tags": [
+      "صحي",
+      "طبخ",
+      "نصائح"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "موسيقى هادئة للدراسة والتركيز",
+    "video_url": "https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerEscapes.mp4",
+    "poster": "https://www.gstatic.com/images/branding/product/1x/googleg_120x120.png",
+    "views": 203450,
+    "likes": 48900,
+    "category": "موسيقى",
+    "tags": [
+      "موسيقى",
+      "دراسة",
+      "تركيز"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "مراجعة شاملة لأحدث الهواتف الذكية",
+    "video_url": "https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerJoyrides.mp4",
+    "poster": "https://www.gstatic.com/images/branding/product/1x/googleg_120x120.png",
+    "views": 89650,
+    "likes": 22340,
+    "category": "تقنية",
+    "tags": [
+      "هواتف",
+      "تقنية",
+      "مراجعة"
+    ]
+  }
+]
