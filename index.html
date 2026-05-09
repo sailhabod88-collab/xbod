@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>xbod — منصة المحاضرات الإلكترونية</title>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛️</text></svg>" rel="icon" type="image/x-icon"/>
+</head>
+<body>
+
+  <!-- ===== Splash Screen ===== -->
+  <div id="splash-screen">
+    <div class="splash-inner">
+      <div class="splash-orb splash-orb-1"></div>
+      <div class="splash-orb splash-orb-2"></div>
+      <div class="splash-orb splash-orb-3"></div>
+      <div class="splash-logo">
+        <div class="splash-atom-wrap">
+          <div class="splash-atom-ring ring-1"></div>
+          <div class="splash-atom-ring ring-2"></div>
+          <div class="splash-atom-ring ring-3"></div>
+          <div class="splash-nucleus">
+            <i class="fas fa-atom"></i>
+          </div>
+        </div>
+        <h1 class="splash-title">xbod</h1>
+        <p class="splash-sub">منصة المحاضرات الإلكترونية</p>
+        <div class="splash-loader">
+          <div class="splash-progress"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Noise Overlay ===== -->
+  <div class="noise-overlay"></div>
+
+  <!-- ===== Ambient Background ===== -->
+  <div class="ambient-bg">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <!-- ===== نافذة الاشتراك الإجباري (System Alert) ===== -->
+  <div class="modal system-alert" id="subscriptionModal">
+    <div class="alert-backdrop"></div>
+    <div class="modal-content alert-animated">
+      <div class="alert-header">
+        <div class="alert-status-bar">
+          <span class="status-dot"></span>
+          <span>إشعار النظام</span>
+          <span class="alert-time" id="alert-time">10:24</span>
+        </div>
+        <div class="alert-icon-wrap">
+          <div class="alert-icon-ring"></div>
+          <i class="fab fa-telegram alert-telegram-icon"></i>
+        </div>
+        <h2 class="alert-title">اشتراك مطلوب</h2>
+        <p class="alert-desc">للوصول الكامل إلى منصة xbod</p>
+      </div>
+      <div class="alert-body">
+        <div class="alert-warning-strip">
+          <i class="fas fa-shield-halved"></i>
+          <p>سيتم تعليق حسابك خلال <strong>24 ساعة</strong> إذا لم تشترك بالقناة</p>
+        </div>
+        <div class="alert-channel-card">
+          <div class="channel-avatar">
+            <i class="fab fa-telegram"></i>
+          </div>
+          <div class="channel-details">
+            <span class="channel-badge">قناة رسمية</span>
+            <p class="channel-name-alert">xbod التعليمية</p>
+            <p class="channel-handle">t.me/kfwfk</p>
+          </div>
+          <div class="channel-online">
+            <span></span>
+            <span>مباشر</span>
+          </div>
+        </div>
+        <div class="alert-actions">
+          <a class="alert-btn alert-btn-primary" href="https://t.me/kfwfk" target="_blank">
+            <i class="fab fa-telegram"></i>
+            انضم للقناة الآن
+          </a>
+          <button class="alert-btn alert-btn-secondary" id="subscribed-btn">
+            <i class="fas fa-circle-check"></i>
+            تم الاشتراك
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo" onclick="goHome()">
+          <div class="logo-icon">
+            <i class="fas fa-atom"></i>
+            <div class="logo-glow"></div>
+          </div>
+          <div class="logo-text">
+            <h1>xbod</h1>
+            <p>منصة إلكترونية</p>
+          </div>
+        </div>
+        <nav class="header-nav">
+          <a class="nav-pill" href="https://t.me/Tandra111" target="_blank">
+            <i class="fas fa-headset"></i>
+            <span>الدعم</span>
+          </a>
+          <a class="nav-pill nav-tg" href="https://t.me/Tandra111" target="_blank">
+            <i class="fab fa-telegram"></i>
+            <span>القناة</span>
+          </a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- ===== Mobile Menu ===== -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mobile-link" href="https://t.me/bd7wz" target="_blank">
+      <i class="fas fa-headset"></i> الدعم الفني
+    </a>
+    <a class="mobile-link" href="https://t.me/Tandra111" target="_blank">
+      <i class="fab fa-telegram"></i> قناة التحديثات
+    </a>
+  </div>
+
+  <!-- ===== Main Content ===== -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Back Button -->
+      <div class="back-button" id="back-button" style="display: none;">
+        <button onclick="goBack()">
+          <i class="fas fa-arrow-right"></i>
+          <span>العودة</span>
+        </button>
+      </div>
+
+      <!-- ===== Home Page ===== -->
+      <div class="page active" id="home-page">
+
+        <!-- Hero -->
+        <section class="hero-section">
+          <div class="hero-badge">
+            <span class="badge-pulse"></span>
+            <i class="fas fa-bolt-lightning"></i>
+            منصة تعليمية من الجيل الجديد
+          </div>
+          <h1 class="hero-title">
+            تعلّم بلا حدود مع<br/>
+            <span class="hero-brand">xbod</span>
+          </h1>
+          <p class="hero-sub">أفضل محاضرات السادس العلمي من نخبة المدرسين — مجاناً، بجودة HD</p>
+          <div class="hero-chips">
+            <div class="chip"><i class="fas fa-users"></i> +50 مدرس</div>
+            <div class="chip"><i class="fas fa-play-circle"></i> +1000 محاضرة</div>
+            <div class="chip chip-glow"><i class="fas fa-circle-check"></i> مجاني 100%</div>
+          </div>
+        </section>
+
+        <!-- Section Cards -->
+        <div class="sections-label">
+          <span>اختر القسم</span>
+          <div class="label-line"></div>
+        </div>
+
+        <div class="main-sections">
+
+          <!-- 2026 -->
+          <div class="section-card card-2026" onclick="loadSection('2026')">
+            <div class="card-bg-glow"></div>
+            <div class="card-noise"></div>
+            <div class="card-top-row">
+              <div class="card-badge-pill">جديد ✦</div>
+              <div class="card-arrow-icon"><i class="fas fa-chevron-left"></i></div>
+            </div>
+            <div class="card-icon-3d">
+              <div class="icon-shadow"></div>
+              <div class="icon-face">
+                <i class="fas fa-rocket"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>محاضرات 2026</h3>
+              <p>أحدث المحاضرات للعام الدراسي الجديد</p>
+            </div>
+            <div class="card-footer-row">
+              <span class="mini-tag"><i class="fas fa-circle-check"></i> محدّث</span>
+              <span class="mini-tag"><i class="fas fa-video"></i> HD</span>
+            </div>
+          </div>
+
+          <!-- 2025 -->
+          <div class="section-card card-2025" onclick="loadSection('2025')">
+            <div class="card-bg-glow"></div>
+            <div class="card-noise"></div>
+            <div class="card-top-row">
+              <div class="card-arrow-icon"><i class="fas fa-chevron-left"></i></div>
+            </div>
+            <div class="card-icon-3d">
+              <div class="icon-shadow"></div>
+              <div class="icon-face">
+                <i class="fas fa-book-open"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>محاضرات 2025</h3>
+              <p>محاضرات العام السابق كاملة ومرتبة</p>
+            </div>
+            <div class="card-footer-row">
+              <span class="mini-tag"><i class="fas fa-archive"></i> أرشيف</span>
+              <span class="mini-tag"><i class="fas fa-video"></i> HD</span>
+            </div>
+          </div>
+
+          <!-- Iraq Academy -->
+          <div class="section-card card-iraq" onclick="loadSection('iraq')">
+            <div class="card-bg-glow"></div>
+            <div class="card-noise"></div>
+            <div class="card-top-row">
+              <div class="card-badge-pill badge-gold">مميز ★</div>
+              <div class="card-arrow-icon"><i class="fas fa-chevron-left"></i></div>
+            </div>
+            <div class="card-icon-3d">
+              <div class="icon-shadow"></div>
+              <div class="icon-face">
+                <i class="fas fa-university"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>العراق أكاديمي 2025</h3>
+              <p>محاضرات منصة العراق أكاديمي الشاملة</p>
+            </div>
+            <div class="card-footer-row">
+              <span class="mini-tag"><i class="fas fa-star"></i> حصري</span>
+              <span class="mini-tag"><i class="fas fa-bolt"></i> سريع</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Features -->
+        <div class="features-row">
+          <div class="feature-item">
+            <div class="feature-icon-wrap"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <h4>آمن ومجاني</h4>
+              <p>بدون إعلانات مزعجة</p>
+            </div>
+          </div>
+          <div class="feature-divider"></div>
+          <div class="feature-item">
+            <div class="feature-icon-wrap"><i class="fas fa-mobile-screen"></i></div>
+            <div>
+              <h4>متوافق مع الجوال</h4>
+              <p>يعمل على جميع الأجهزة</p>
+            </div>
+          </div>
+          <div class="feature-divider"></div>
+          <div class="feature-item">
+            <div class="feature-icon-wrap"><i class="fas fa-arrows-rotate"></i></div>
+            <div>
+              <h4>تحديث مستمر</h4>
+              <p>محاضرات جديدة يومياً</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /home-page -->
+
+      <!-- ===== Teachers Page ===== -->
+      <div class="page" id="teachers-page">
+        <div class="page-header">
+          <div class="page-header-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <div class="page-header-text">
+            <h2 id="section-title">المدرسين</h2>
+            <p id="section-subtitle">اختر المدرس المناسب لك</p>
+          </div>
+        </div>
+        <div class="search-bar">
+          <i class="fas fa-magnifying-glass"></i>
+          <input id="teacher-search" oninput="filterTeachers()" placeholder="ابحث عن مدرس..." type="text"/>
+          <div class="search-kbd">♡K</div>
+        </div>
+        <div class="teachers-grid" id="teachers-grid"></div>
+      </div>
+
+      <!-- ===== Classes Page ===== -->
+      <div class="page" id="classes-page">
+        <div class="page-header teacher-header">
+          <img alt="" class="teacher-avatar" id="teacher-image-header" src=""/>
+          <div class="page-header-text">
+            <h2 id="teacher-name-header"></h2>
+            <p id="teacher-subject-header"></p>
+          </div>
+        </div>
+        <div class="classes-list" id="classes-list"></div>
+      </div>
+
+      <!-- ===== Player Page (Netflix-style) ===== -->
+      <div class="page" id="player-page">
+        <div class="netflix-layout">
+
+          <!-- Main Player -->
+          <div class="player-main">
+            <div class="player-container">
+              <div class="player-header">
+                <div class="player-info">
+                  <i class="fas fa-circle-play"></i>
+                  <h3 id="current-lecture-title"></h3>
+                </div>
+                <button class="playlist-toggle-btn" onclick="togglePlaylistSidebar()" title="قائمة المحاضرات">
+                  <i class="fas fa-list-ul"></i>
+                  <span>القائمة</span>
+                </button>
+              </div>
+              <div class="video-wrapper">
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" id="video-iframe" style="display: none;"></iframe>
+                <video controls="" id="video-player" preload="metadata" style="display: none;">متصفحك لا يدعم تشغيل الفيديو</video>
+                <div class="loading-spinner" id="loading-spinner">
+                  <div class="spinner-rings">
+                    <div class="s-ring r1"></div>
+                    <div class="s-ring r2"></div>
+                    <div class="s-ring r3"></div>
+                    <i class="fas fa-atom spinner-atom"></i>
+                  </div>
+                  <p>جاري تحميل المحاضرة...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar Playlist -->
+          <aside class="playlist-sidebar" id="playlist-sidebar">
+            <div class="sidebar-header">
+              <h4><i class="fas fa-list-ul"></i> قائمة المحاضرات</h4>
+              <button class="sidebar-close" onclick="togglePlaylistSidebar()">
+                <i class="fas fa-xmark"></i>
+              </button>
+            </div>
+            <div class="sidebar-list" id="sidebar-playlist-list"></div>
+          </aside>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-atom"></i>
+          <span>xbod</span>
+        </div>
+        <p>منصة تعليمية مجانية لطلاب السادس العلمي</p>
+        <div class="footer-links">
+          <a href="https://t.me/Tandra111" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="storage.js"></script>
+  <script src="player.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // ===== Splash Screen Logic =====
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash-screen');
+      setTimeout(() => {
+        splash.classList.add('splash-fade');
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 700);
+      }, 2200);
+    });
+
+    // ===== Alert Time =====
+    const alertTimeEl = document.getElementById('alert-time');
+    if (alertTimeEl) {
+      const now = new Date();
+      alertTimeEl.textContent = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+    }
+
+    // ===== Playlist Sidebar Toggle =====
+    function togglePlaylistSidebar() {
+      const sidebar = document.getElementById('playlist-sidebar');
+      if (sidebar) sidebar.classList.toggle('sidebar-open');
+    }
+
+    // ===== Header scroll effect =====
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      if (header) {
+        header.classList.toggle('header-scrolled', window.scrollY > 20);
+      }
+    });
+  </script>
+</body>
+</html>
